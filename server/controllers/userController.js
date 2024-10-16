@@ -37,6 +37,35 @@ const login = async (req, res) => {
     }
 };
 
+const validUser = async (req, res) => {
+    try {
+        const validUserOne = await User.findOne({
+            _id: req.userId
+        })
+        res.status(200).json({
+            status: 200,
+            validUserOne
+        })
+    } catch (error) {
+        res.status(401).json(error)
+    }
+}
+
+const logout = async (req, res) => {
+    try {
+        req.rootUser.tokens = req.rootUser.tokens.filter((curelem) => {
+            return curelem.token !== req.token;
+        });
+        res.clearCookie("usercookie", { path: "/" });
+        req.rootUser.save();
+        res.status(200).json({ status: 200 });
+    } catch (error) {
+        res.status(401).json(error);
+    }
+}
+
 export {
-    login
+    login,
+    validUser,
+    logout
 }
