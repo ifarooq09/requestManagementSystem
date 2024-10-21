@@ -3,6 +3,9 @@ import SignIn from "./components/auth/SignIn"
 import Error from "./components/auth/Error"
 import Dashboard from "./components/pages/Dashboard"
 import Profile from "../src/components/pages/Profile"
+import UserLayout from "./components/layout/UserLayout"
+import DirectorateLayout from "./components/layout/DirectorateLayout"
+import DocumentLayout from "./components/layout/DocumentLayout"
 
 function App() {
   return (
@@ -11,6 +14,9 @@ function App() {
         <Routes>
           <Route path="/" element={ <SignIn /> } />
           <Route path="/dashboard" element={ <Dashboard /> } />
+          <Route path="/users" element={ <UserLayout /> } />
+          <Route path="/directorates" element={ <DirectorateLayout/> } />
+          <Route path="/documents" element={ <DocumentLayout /> } />
           <Route path='/profile' element={<Profile />} />
           <Route path="*" element={ <Error/> } />
         </Routes>

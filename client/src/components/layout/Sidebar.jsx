@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { createTheme, ThemeProvider, styled } from "@mui/material/styles";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
@@ -9,10 +10,10 @@ import CssBaseline from "@mui/material/CssBaseline";
 import List from "@mui/material/List";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
-import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
-import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+// import IconButton from "@mui/material/IconButton";
+// import MenuIcon from "@mui/icons-material/Menu";
+// import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+// import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import SidebarItems from "../layout/SidebarItems";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
@@ -52,7 +53,8 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   alignItems: "center",
   padding: theme.spacing(0, 1),
   justifyContent: "flex-start",
-  height: "62px",
+  height: "64px",
+  backgroundColor: "#2e7d32"
 }));
 
 // Define custom theme
@@ -71,10 +73,10 @@ export default function Sidebar() {
   const [anchorEl, setAnchorEl] = useState(null);
   const openMenu = Boolean(anchorEl);
 
-  // Toggle drawer state
-  const toggleDrawer = () => {
-    setOpen(!open);
-  };
+  // // Toggle drawer state
+  // const toggleDrawer = () => {
+  //   setOpen(!open);
+  // };
 
   // Handle avatar click
   const handleClick = (event) => {
@@ -138,7 +140,7 @@ export default function Sidebar() {
         <CssBaseline />
         <AppBar position="fixed" open={open}>
           <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
-            <IconButton
+            {/* <IconButton
               color="inherit"
               aria-label="open drawer"
               edge="end"
@@ -146,7 +148,7 @@ export default function Sidebar() {
               sx={{ order: 3 }}
             >
               <MenuIcon />
-            </IconButton>
+            </IconButton> */}
 
             <Typography
               variant="h6"
@@ -198,19 +200,19 @@ export default function Sidebar() {
               width: drawerWidth,
             },
           }}
-          variant="persistent"
+          variant="permanent"
           anchor="right"
           open={open}
           dir="rtl"
         >
           <DrawerHeader>
-            <IconButton onClick={toggleDrawer}>
+            {/* <IconButton onClick={toggleDrawer}>
               {theme.direction === "rtl" ? (
                 <ChevronLeftIcon />
               ) : (
                 <ChevronRightIcon />
               )}
-            </IconButton>
+            </IconButton> */}
           </DrawerHeader>
           <Divider />
           <List component="nav">
