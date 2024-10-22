@@ -1,6 +1,6 @@
 const TotalDirectorates = () => {
   return (
-    <div>TotalDirectorates</div>
+    <div>ریاست / معینیت</div>
   )
 }
 

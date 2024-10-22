@@ -54,7 +54,6 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   padding: theme.spacing(0, 1),
   justifyContent: "flex-start",
   height: "64px",
-  backgroundColor: "#2e7d32"
 }));
 
 // Define custom theme
@@ -206,13 +205,11 @@ export default function Sidebar() {
           dir="rtl"
         >
           <DrawerHeader>
-            {/* <IconButton onClick={toggleDrawer}>
-              {theme.direction === "rtl" ? (
-                <ChevronLeftIcon />
-              ) : (
-                <ChevronRightIcon />
-              )}
-            </IconButton> */}
+            <img
+              src="mail.png"
+              alt="Logo"
+              style={{ height: "180px",width: "200px", marginLeft: "10px" }} // Adjust the size and margin as needed
+            />
           </DrawerHeader>
           <Divider />
           <List component="nav">

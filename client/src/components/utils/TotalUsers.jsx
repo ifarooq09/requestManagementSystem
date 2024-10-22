@@ -1,6 +1,6 @@
 const TotalUsers = () => {
   return (
-    <div>TotalUsers</div>
+    <div>کاربران</div>
   )
 }
 
