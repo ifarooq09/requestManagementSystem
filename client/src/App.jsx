@@ -6,6 +6,7 @@ import Profile from "../src/components/pages/Profile"
 import UserLayout from "./components/layout/UserLayout"
 import DirectorateLayout from "./components/layout/DirectorateLayout"
 import DocumentLayout from "./components/layout/DocumentLayout"
+import AllUsers from "./components/pages/AllUsers"
 
 function App() {
   return (
@@ -14,7 +15,9 @@ function App() {
         <Routes>
           <Route path="/" element={ <SignIn /> } />
           <Route path="/dashboard" element={ <Dashboard /> } />
-          <Route path="/users" element={ <UserLayout /> } />
+          <Route path="/users" element={ <UserLayout /> }>
+            <Route index element={<AllUsers />} />
+          </Route>
           <Route path="/directorates" element={ <DirectorateLayout/> } />
           <Route path="/documents" element={ <DocumentLayout /> } />
           <Route path='/profile' element={<Profile />} />

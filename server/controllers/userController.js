@@ -37,6 +37,34 @@ const login = async (req, res) => {
     }
 };
 
+const allUser = async (req, res) => {
+    try {
+        const users = await User.find({}).select('-password -tokens')
+        res.status(200).json(users)
+    } catch (error) {
+        res.status(500).json({
+            message: 'Internet Server Error'
+        })
+    }
+}
+
+const updateUser = async (req, res) => {
+    try {
+        const { role, active, password } = req.body;
+
+        const updateFields = { role, active };
+
+        if (password) {
+            updateFields.password = await bcrypt.hash(password, 12); // Hash the password here
+        }
+
+        await userModel.findByIdAndUpdate(req.params.userId, updateFields);
+        res.status(200).json({ success: true, result: { _id: req.params.userId } });
+    } catch (error) {
+        res.status(500).json({ success: false, message: error.message });
+    }
+};
+
 const validUser = async (req, res) => {
     try {
         const validUserOne = await User.findOne({
@@ -67,5 +95,7 @@ const logout = async (req, res) => {
 export {
     login,
     validUser,
-    logout
+    logout,
+    allUser,
+    updateUser
 }
