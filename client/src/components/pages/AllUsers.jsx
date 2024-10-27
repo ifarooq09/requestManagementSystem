@@ -33,13 +33,7 @@ const AllUsers = () => {
           },
         });
 
-        // Debugging: Check response status and data
-        console.log("Response Status:", res.status);
-        console.log("Response Data:", res.data);
-
-        // Check for successful status
         if (res.status === 200) {
-          // Assuming `res.data` directly holds the user data
           const data = res.data;
           setUsers(data);
         } else {
@@ -71,7 +65,7 @@ const AllUsers = () => {
         body: JSON.stringify({
           role: row.role,
           active: row.active,
-          password: row.password, // Add password to the update request
+          password: row.password,
         }),
       });
 
@@ -185,6 +179,7 @@ const AllUsers = () => {
         p: 3,
         marginTop: "55px",
         height: "100vh",
+        marginRight: "240px", // Adjust for drawer width
       }}
     >
       <Paper
